@@ -1,7 +1,6 @@
-name: Build and Deploy LinguaForge APK
+name: Build APK
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
 
@@ -10,49 +9,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: ☕ Set up Java
-        uses: actions/setup-java@v3
-        with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: 🛠️ Set up Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.22.0'
 
-      - name: 🧹 Flutter Clean
+      - name: Clean build
         run: flutter clean
 
-      - name: 🧼 Remove build caches
-        run: rm -rf .dart_tool/ .gradle/ build/
-
-      - name: 📦 Get Dependencies
+      - name: Get dependencies
         run: flutter pub get
 
-      - name: 🧹 Remove pubspec.lock
-        run: rm -f pubspec.lock
-
-      - name: 📊 Check outdated packages
-        run: flutter pub outdated
-
-      - name: ⬆️ Upgrade packages
-        run: flutter pub upgrade --major-versions
-
-      - name: 🚀 Build APK
+      - name: Build APK
         run: flutter build apk --release
 
-      - name: 📁 Prepare upload folder
-        run: mkdir -p upload
-
-      - name: 📤 Move APK to upload folder
-        run: cp build/app/outputs/flutter-apk/app-release.apk upload/
-
-      - name: 📎 Upload APK as artifact
-        uses: actions/upload-artifact@v4
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
         with:
-          name: lingua_forge-release-apk
-          path: upload/app-release.apk
+          name: release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
