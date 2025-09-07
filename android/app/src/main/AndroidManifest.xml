@@ -2,10 +2,10 @@
     package="com.example.lingua_forge_clean">
 
     <application
-        android:name=".MainApplication"
-        android:label="LinguaForge"
+        android:label="lingua_forge_clean"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
+        
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -14,11 +14,11 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
+            
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
     </application>
-
 </manifest>
