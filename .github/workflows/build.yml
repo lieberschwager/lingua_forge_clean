@@ -17,8 +17,11 @@ jobs:
         with:
           flutter-version: '3.22.0'
 
-      - name: Clean build
-        run: flutter clean
+      - name: Full clean
+        run: |
+          rm -rf android/.gradle
+          rm -rf android/app/build
+          flutter clean
 
       - name: Get dependencies
         run: flutter pub get
