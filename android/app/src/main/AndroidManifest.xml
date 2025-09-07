@@ -2,7 +2,7 @@
     package="com.example.lingua_forge_clean">
 
     <application
-        android:name="${applicationName}"
+        android:name="io.flutter.embedding.android.FlutterApplication"
         android:label="lingua_forge_clean"
         android:icon="@mipmap/ic_launcher"
         android:usesCleartextTraffic="true">
