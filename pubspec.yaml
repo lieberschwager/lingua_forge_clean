@@ -1,28 +1,26 @@
 name: lingua_forge_clean
-description: Dein persönlicher Sprachbegleiter mit Flutter.
-publish_to: "none"
-
+description: A new Flutter project.
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.3.0 <4.0.0"
+  sdk: ^3.3.0
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: any
-  provider: any
-  http: any
-  intl: any
+  cupertino_icons: ^1.0.6
+  # Beispielhafte Plugins – bitte ergänzen oder anpassen:
+  firebase_core: ^2.25.0
+  firebase_auth: ^4.17.0
+  cloud_firestore: ^4.15.0
+  provider: ^6.1.1
+  shared_preferences: ^2.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: any
+  flutter_lints: ^3.0.1
 
 flutter:
   uses-material-design: true
-
-  assets:
-    - assets/linguaforge_logo.png
-    - assets/data/vocab.json
