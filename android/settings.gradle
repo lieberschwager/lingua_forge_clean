@@ -1,0 +1,3 @@
+rootProject.name = 'lingua_forge_clean'
+
+include ':app'
